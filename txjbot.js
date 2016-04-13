@@ -1097,7 +1097,6 @@ client.Dispatcher.on(Discordie.Events.MESSAGE_CREATE, (e) => {
 });
 
 client.Dispatcher.on(Discordie.Events.VOICE_CONNECTED, (data) => {
-  console.log(e)
 	if(client.VoiceConnections.length <= 0) {
 		return
 	}
