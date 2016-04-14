@@ -100,11 +100,11 @@ var commands = {
 				return
 			}
 			if(voiceid == null||voiceid == undefined){
-				e.message.reply("You're not even in a voice channel, Join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel' Dropped Request.")
+				e.message.reply("You're not even in a voice channel, Join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel' dropped request.")
 				return
 			}else{
 				if(voiceid !== botvoiceid){
-					e.message.channel.sendMessage("Your not even in the same voice channel as the bot, Dropped Request")
+					e.message.channel.sendMessage("You're not even in the same voice channel as the bot, dropped request.")
 					return
 				}
 				if(!data.args[1]) {
@@ -316,7 +316,7 @@ var commands = {
   			);
 
   		},
-  		"description": "Checks the uptime of the bot also reports misc info.",
+  		"description": "Checks the uptime of the bot, also reports misc info.",
   		"authLevel": 0
   	},
   	"imdb": {
@@ -359,7 +359,7 @@ var commands = {
   	},
   	"join": {
   		"command": function(data,e) {
-  			e.message.reply("PM Me your invite code and I will join the server! :)")
+  			e.message.reply("PM me your invite code and I will join the server! :)")
   			setTimeout(function(){
   				client.Users.get(e.message.author.id).openDM().then(dm => dm.sendMessage("Send me an invite code here!"))
   			}, 50);
@@ -375,7 +375,7 @@ var commands = {
 			  	return
 			  }
 			  if(voiceid == null||voiceid == undefined){
-			  	e.message.reply("You're not even in a voice channel, Join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel' Dropped Request.")
+			  	e.message.reply("You're not even in a voice channel, Join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel' dropped request.")
 			  	return
 			  }else{
 			  	try {
@@ -432,7 +432,7 @@ var commands = {
 			}
 			var osuInput = InputTag.join("+");
 			if(!osuInput){
-				e.message.channel.sendMessage("Sorry about that I need an OSU Player to lookup! - Usage: /osu <player>")
+				e.message.channel.sendMessage("Sorry about that, I need an OSU player to lookup! - Usage: /osu <player>")
 				return
 			}
 			var request = require('request')
@@ -462,8 +462,8 @@ var commands = {
 			var connection = voiceconnectionhashmap[e.message.channel.guild.id];
 			var voiceid = e.message.author.getVoiceChannel(e.message.channel.guild)
 			var botvoiceid = client.User.getVoiceChannel(e.message.channel.guild)
-			if(!connection) return e.message.channel.sendMessage("I'm not currently in a voice channel.. Dropped Request")
-			if(voiceid !== botvoiceid) return e.message.channel.sendMessage("Your not even in the same voice channel as the bot, Dropped Request")
+			if(!connection) return e.message.channel.sendMessage("I'm not currently in a voice channel.. dropped request.")
+			if(voiceid !== botvoiceid) return e.message.channel.sendMessage("You're not even in the same voice channel as the bot, dropped request.")
 			stop(connection);
 			voiceid.leave();
 			e.message.channel.sendMessage(":ok_hand: ___**Attempting to leave my active Voice Channel**___")
@@ -495,11 +495,11 @@ var commands = {
 						}
 					});
 				}else{
-					e.message.channel.sendMessage("```fix\nI don't have permissions to remove messages sorry, Give the permission *MANAGE_MESSAGES* to the bot in order to use this command.```")
+					e.message.channel.sendMessage("```fix\nI don't have permissions to remove messages, sorry. Give the permission *MANAGE_MESSAGES* to the bot in order to use this command.```")
 					return
 				}
 			}else{
-				e.message.channel.sendMessage("This command requires the role `TXJBot Admin`, Dropped Request")
+				e.message.channel.sendMessage("This command requires the role `TXJBot Admin`, dropped request.")
 				return
 			}
 
@@ -512,11 +512,11 @@ var commands = {
 			var voiceid = e.message.author.getVoiceChannel(e.message.channel.guild)
 			var botvoiceid = client.User.getVoiceChannel(e.message.channel.guild)
 			if(voiceid == null||voiceid == undefined){
-				e.message.reply("You're not even in a voice channel, Join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel' Dropped Request.")
+				e.message.reply("You're not even in a voice channel, Join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel' dropped request.")
 				return
 			}else{
 				if (!connection) return e.message.reply("Not in a voice channel. Use: `/vjoin` or `/jv`")
-				if(voiceid !== botvoiceid) return e.message.channel.sendMessage("Your not even in the same voice channel as the bot, Dropped Request")
+				if(voiceid !== botvoiceid) return e.message.channel.sendMessage("You're not even in the same voice channel as the bot, dropped request.")
 				if (!data.args[1]) return e.message.channel.sendMessage("Sorry, I need something to play! Usage: /play <video_link|audio_stream>")
 				if(data.args[1]===undefined||data.args[1]==="") return e.message.channel.sendMessage("No arguments found. **Usage: /play <video_link|audio_stream>**")
 				// if(data.args[1]){
@@ -560,16 +560,16 @@ var commands = {
 			var voiceid = e.message.author.getVoiceChannel(e.message.channel.guild)
 			var botvoiceid = client.User.getVoiceChannel(e.message.channel.guild)
 			if (!connection){
-				e.message.reply("I'm not even in a voice channel, Dropped Request.")
+				e.message.reply("I'm not even in a voice channel, dropped request.")
 				//console.log("[INFO]: Nothing playing, user ran stop command", connection);
 				return
 			}
 			if(voiceid !== botvoiceid){
-				e.message.channel.sendMessage("Your not even in the same voice channel as the bot, Dropped Request")
+				e.message.channel.sendMessage("You're not even in the same voice channel as the bot, dropped request.")
 				return
 			}
 			if(!voiceid){
-				e.message.reply("You're not even in a voice channel, Join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel' Dropped Request.")
+				e.message.reply("You're not even in a voice channel, Join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel' dropped request.")
 				return
 			}else{
 				if (connection){
@@ -613,14 +613,14 @@ var commands = {
 			var voiceid = e.message.author.getVoiceChannel(e.message.channel.guild)
 			var volumeControl = 1;
 			if(voiceid == null||voiceid == undefined){
-				e.message.reply("You're not even in a voice channel, Join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel' Dropped Request.")
+				e.message.reply("You're not even in a voice channel, join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel’\nDropped request.")
 				return
 			}else{
 				if (!connection){
 					return e.message.reply("Not in a voice channel. Use: `/vjoin` or `/jv`");
 				}
 				if (!data.args[1]){
-					return e.message.reply("Sorry, I need a Radio station to Play! Use: /radiostations");
+					return e.message.reply("Sorry, I need a radio station to play! Use: /radiostations");
 				}
 				if(!data.args[1]){
 					e.message.channel.sendMessage("No arguments found. **Usage: /radio <link>**")
@@ -692,7 +692,7 @@ var commands = {
 						})
 					}
 				}else{
-					e.message.channel.sendMessage("That's not a valid radio station. Please Use /radiostations")
+					e.message.channel.sendMessage("That's not a valid radio station. Please use /radiostations")
 					return
 				}
 			}
@@ -819,7 +819,7 @@ var commands = {
 			var connection = voiceconnectionhashmap[e.message.channel.guild.id];
 			var voiceid = e.message.author.getVoiceChannel(e.message.channel.guild)
 			if(voiceid == null||voiceid == undefined){
-				e.message.reply("You're not even in a voice channel, Join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel' Dropped Request.")
+				e.message.reply("You're not even in a voice channel, join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel’\nDropped request.")
 				return
 			}else{
 				if (!connection){
@@ -834,7 +834,7 @@ var commands = {
 						stop(connection);
 						//console.log("[DEBUG TWITCH] : ", connection);
 						play(streams[5].url, connection, 1);
-						e.message.reply("is playing: **" + info.title + "\n(To stop the song or make the bot leave type or /stop)**")
+						e.message.reply("is playing: **" + info.title + "\n(To stop the song or make the bot leave type /lv or /stop)**")
 					}
 				});
 			}
@@ -943,7 +943,7 @@ var commands = {
 				return
 			}
 			if(voiceid == null||voiceid == undefined){
-				e.message.reply("You're not even in a voice channel, Join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel' Dropped Request.")
+				e.message.reply("You're not even in a voice channel, join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel’\nDropped request.")
 				return
 			}else{
 				try {
@@ -970,11 +970,11 @@ var commands = {
 			var voiceid = e.message.author.getVoiceChannel(e.message.channel.guild)
 			var botvoiceid = client.User.getVoiceChannel(e.message.channel.guild)
 			if(!connection){
-				e.message.channel.sendMessage("I'm not currently in a voice channel.. Dropped Request")
+				e.message.channel.sendMessage("I'm not currently in a voice channel.. dropped request.")
 				return
 			}
 			if(voiceid !== botvoiceid){
-				e.message.channel.sendMessage("Your not even in the same voice channel as the bot, Dropped Request")
+				e.message.channel.sendMessage("You're not even in the same voice channel as the bot, dropped request.")
 				return
 			}
 			voiceid.leave();
@@ -1009,7 +1009,7 @@ var commands = {
 				}
 			})
 		},
-		"description": "Get's Weather for an Area - Usage: /weather <CITY,ST> or <CITY>",
+		"description": "Gets weather for an area - Usage: /weather <CITY,ST> or <CITY>",
 		"authLevel": 0
 	},
 	"8ball": {
@@ -1061,7 +1061,7 @@ client.Dispatcher.on(Discordie.Events.MESSAGE_CREATE, (e) => {
 				e.message.content.indexOf("/purge") >= 0 ||
 				e.message.content.indexOf("/radio") >= 0)
 			{
-				e.message.channel.sendMessage("Sorry, You cannot use that command in PM's")
+				e.message.channel.sendMessage("Sorry, you cannot use that command in PMs”)
 				return
 			}
 		}
@@ -1071,11 +1071,11 @@ client.Dispatcher.on(Discordie.Events.MESSAGE_CREATE, (e) => {
 		var code = /https?:\/\/discord\.gg\/([A-Za-z0-9-]+)\/?/.exec(e.message.content)[1];
 		client.Invites.resolve(code).then(function(value) {
 			if(client.Guilds.find(g => g.name == value.guild.name) >= 1){
-				e.message.channel.sendMessage("I'm already in that server! :) 'If the bot is not in the server already, rename your Server to something else.'")
+				e.message.channel.sendMessage("I'm already in that server! :) 'If the bot is not in the server already, rename your server to something else.'")
 				return
 			}else{
 				client.Invites.accept(code)
-				e.message.channel.sendMessage("Found invite!, Joining Server! :)")
+				e.message.channel.sendMessage("Found invite!, Joining server! :)")
 			}
 		}, function(reason) {
 			e.message.channel.sendMessage("**The bot is banned from this server.**")
