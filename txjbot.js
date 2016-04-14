@@ -91,7 +91,7 @@ var commands = {
 			var voiceid = e.message.author.getVoiceChannel(e.message.channel.guild)
 			var botvoiceid = client.User.getVoiceChannel(e.message.channel.guild)
 			if(!botvoiceid){
-				e.message.reply("I am not in a voice channel please use `/jv` or `/vjoin`")
+				e.message.reply("I am not in a voice channel, please use `/jv` or `/vjoin`")
 				return
 			}
 			if(!connection){
@@ -100,7 +100,7 @@ var commands = {
 				return
 			}
 			if(voiceid == null||voiceid == undefined){
-				e.message.reply("You're not even in a voice channel, Join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel' dropped request.")
+				e.message.reply("You're not even in a voice channel, join a channel and use: `/vjoin` or `/jv` to have the bot join a voice channel\nDropped request.")
 				return
 			}else{
 				if(voiceid !== botvoiceid){
@@ -173,10 +173,10 @@ var commands = {
 				e.message.channel.sendMessage("Emoji ("+data.args[1]+") does not exist. **/emojilist for usage**")
 			}
 			if(!data.args[1]){
-				e.message.channel.sendMessage("No Arguments found please use: /e <emojiname>")
+				e.message.channel.sendMessage("No arguments found, please use: /e <emojiname>")
 				return
 			}else if(data.args[1]===undefined){
-				e.message.channel.sendMessage("No Arguments found please use: /e <emojiname>")
+				e.message.channel.sendMessage("No arguments found, please use: /e <emojiname>")
 				return
 			}
 		},
@@ -190,7 +190,7 @@ var commands = {
 				files = files.map(function(file) {
 					return file.substring(0, file.indexOf('.'));
 				}).join('\n');
-				e.message.channel.sendMessage("I sent you a PM With all the Emoji's listed!")
+				e.message.channel.sendMessage("I sent you a PM With all the Emojis listed!")
 				client.Users.get(e.message.author.id).openDM().then(dm => dm.sendMessage("Bot, Emoji Listing **(Usage for posting: /e <emojiname>)**\n"+"```"+files+"```"))
 			});
 		},
@@ -233,7 +233,7 @@ var commands = {
 			var channel = e.message.channel;
 			var fs = require('fs')
 			if(!data.args[1]){
-				e.message.channel.sendMessage("No Arguments found please use: /imglist: to see all images.")
+				e.message.channel.sendMessage("No arguments found, please use: `/imglist` to see all images.")
 				return
 			}
 			if (fs.existsSync("./img/"+data.args[1]+".png")) {
@@ -246,7 +246,7 @@ var commands = {
 			}else if (fs.existsSync("./nsfw/"+data.args[1]+".gif")) {
 				channel.uploadFile(fs.createReadStream("./nsfw/"+data.args[1]+".gif"));
 			}else{
-				e.message.channel.sendMessage("File ("+data.args[1]+") does not exist. **Use /imglist: to see all images.**")
+				e.message.channel.sendMessage("File ("+data.args[1]+") does not exist. **Use `/imglist` to see all images.**")
 				return
 			}
 		},
@@ -331,7 +331,7 @@ var commands = {
   			var movieInput = InputTag.join("+");
 
   			if(!data.args[1]){
-  				e.message.channel.sendMessage("No arguments found, Please use /weather <CITY,ST>")
+  				e.message.channel.sendMessage("No arguments found, please use /weather <CITY,ST>")
   				return
   			}
 
@@ -350,7 +350,7 @@ var commands = {
   					}
   					e.message.channel.sendMessage("__***Movie Result for: "+movieInput+"***__\n"+table.join('\n'))
   				}else{
-  					e.message.reply("Sorry about that, there was an error with request to the API, Try again.")
+  					e.message.reply("Sorry about that, there was an error with request to the API, try again.")
   				}
   			})
   		},
@@ -375,7 +375,7 @@ var commands = {
 			  	return
 			  }
 			  if(voiceid == null||voiceid == undefined){
-			  	e.message.reply("You're not even in a voice channel, Join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel' dropped request.")
+			  	e.message.reply("You're not even in a voice channel, join a channel and use: `/vjoin` or `/jv` to have the bot join a voice channel\nDropped request.")
 			  	return
 			  }else{
 			  	try {
@@ -439,7 +439,7 @@ var commands = {
 			request('https://osu.ppy.sh/api/get_user?k=1a5e7c36c7fa6fe21946f4f0cec6eaf8e0fe182c&u='+osuInput, function (error, response, body) {
 				if (!error && response.statusCode == 200) {
 				var osu = JSON.parse(body);
-				  if (!osu || !osu[0]) return e.message.reply("Sorry about that, there was an error with request to the API, Try again.");
+				  if (!osu || !osu[0]) return e.message.reply("Sorry about that, there was an error with request to the API, try again.");
 				var osuData = osu[0];
 				e.message.channel.sendMessage(
 					"__**Found player:**__ "+osuData.username+" If the results print `null` It means the user does not have stats\n"+
@@ -512,7 +512,7 @@ var commands = {
 			var voiceid = e.message.author.getVoiceChannel(e.message.channel.guild)
 			var botvoiceid = client.User.getVoiceChannel(e.message.channel.guild)
 			if(voiceid == null||voiceid == undefined){
-				e.message.reply("You're not even in a voice channel, Join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel' dropped request.")
+				e.message.reply("You're not even in a voice channel, join a channel and use: `/vjoin` or `/jv` to have the bot join a voice channel\nDropped request.")
 				return
 			}else{
 				if (!connection) return e.message.reply("Not in a voice channel. Use: `/vjoin` or `/jv`")
@@ -569,7 +569,7 @@ var commands = {
 				return
 			}
 			if(!voiceid){
-				e.message.reply("You're not even in a voice channel, Join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel' dropped request.")
+				e.message.reply("You're not even in a voice channel, join a channel and Use: `/vjoin` or `/jv` to have the bot join a voice channel\nDropped request.")
 				return
 			}else{
 				if (connection){
@@ -613,7 +613,7 @@ var commands = {
 			var voiceid = e.message.author.getVoiceChannel(e.message.channel.guild)
 			var volumeControl = 1;
 			if(voiceid == null||voiceid == undefined){
-				e.message.reply("You're not even in a voice channel, join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel’\nDropped request.")
+				e.message.reply("You're not even in a voice channel, join a channel and use: `/vjoin` or `/jv` to have the bot join a voice channel\nDropped request.")
 				return
 			}else{
 				if (!connection){
@@ -768,7 +768,7 @@ var commands = {
 	"setavatar": {
 		"command": function(data,e) {
 				var fs = require('fs')
-				if(!data.args[1]) return e.message.channel.sendMessage("No Arguments found please use: /imglist: to see all images.")
+				if(!data.args[1]) return e.message.channel.sendMessage("No arguments found, please use: `/imglist` to see all images.")
 
 				if (fs.existsSync("./img/"+data.args[1]+".png")) {
 					e.message.channel.sendMessage("Found image, setting the bot avatar to: " + data.args[1])
@@ -819,7 +819,7 @@ var commands = {
 			var connection = voiceconnectionhashmap[e.message.channel.guild.id];
 			var voiceid = e.message.author.getVoiceChannel(e.message.channel.guild)
 			if(voiceid == null||voiceid == undefined){
-				e.message.reply("You're not even in a voice channel, join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel’\nDropped request.")
+				e.message.reply("You're not even in a voice channel, join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel\nDropped request.")
 				return
 			}else{
 				if (!connection){
@@ -933,7 +933,7 @@ var commands = {
 				);
 			}
 		},
-		"description": "Pulls User info for yourself or a mentioned user (OPTIONAL) - Usage: /userinfo <mentioned_user>"
+		"description": "Pulls user info for yourself or a mentioned user (OPTIONAL) - Usage: /userinfo <mentioned_user>"
 	},
 	"vjoin": {
 		"command": function(data,e) {
@@ -943,7 +943,7 @@ var commands = {
 				return
 			}
 			if(voiceid == null||voiceid == undefined){
-				e.message.reply("You're not even in a voice channel, join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel’\nDropped request.")
+				e.message.reply("You're not even in a voice channel, join a channel and 'Use: `/vjoin` or `/jv` to have the bot join a voice channel\nDropped request.")
 				return
 			}else{
 				try {
@@ -994,7 +994,7 @@ var commands = {
 				if (!error && response.statusCode == 200) {
 				var weatherData = JSON.parse(body);
 					if(weatherData.cod == "404"){
-						e.message.channel.sendMessage("I'm sorry there was an error with your request.")
+						e.message.channel.sendMessage("I'm sorry, there was an error with your request.")
 						return
 					}
 					e.message.channel.sendMessage(
@@ -1017,7 +1017,7 @@ var commands = {
 			var input = data.args[1];
 			var answer = Math.floor(Math.random() * (5 - 0 + 1) + 0);
 			if(!data.args[1]){
-				e.message.channel.sendMessage("No Arguments found please use: /8ball <question to ask>")
+				e.message.channel.sendMessage("No arguments found, please use: /8ball <question to ask>")
 				return
 			}
 			if(answer === 1) {
@@ -1039,7 +1039,7 @@ var commands = {
 }
 client.Dispatcher.on(Discordie.Events.MESSAGE_CREATE, (e) => {
 
-	//Command check for PM's NEW METHOD
+	//Command check for PMs NEW METHOD
 	if(e.message.isPrivate){
 		if(e.message.author.id == "113877103514091522"){
 			//console.log("BOT PM FOUND IGNORING")
@@ -1075,7 +1075,7 @@ client.Dispatcher.on(Discordie.Events.MESSAGE_CREATE, (e) => {
 				return
 			}else{
 				client.Invites.accept(code)
-				e.message.channel.sendMessage("Found invite!, Joining server! :)")
+				e.message.channel.sendMessage("Found invite!, joining server! :)")
 			}
 		}, function(reason) {
 			e.message.channel.sendMessage("**The bot is banned from this server.**")
@@ -1339,5 +1339,5 @@ function sendMessageSplit(fn, s) {
 	});
 }
 function SendError(e){
-	e.message.channel.uploadFile(fs.createReadStream("./discord.png"), null, "Voice Functionality is currently disabled and in the works of converting to the new Discord API, Please standby while I convert things, thanks yo.");
+	e.message.channel.uploadFile(fs.createReadStream("./discord.png"), null, "Voice functionality is currently disabled and in the works of converting to the new Discord API, please standby while I convert things, thanks yo.");
 }
