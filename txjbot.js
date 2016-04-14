@@ -1061,7 +1061,7 @@ client.Dispatcher.on(Discordie.Events.MESSAGE_CREATE, (e) => {
 				e.message.content.indexOf("/purge") >= 0 ||
 				e.message.content.indexOf("/radio") >= 0)
 			{
-				e.message.channel.sendMessage("Sorry, you cannot use that command in PMs”)
+				e.message.channel.sendMessage("Sorry, you cannot use that command in PMs")
 				return
 			}
 		}
