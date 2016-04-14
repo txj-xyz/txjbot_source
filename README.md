@@ -10,7 +10,7 @@
 - TXJ Bot requires a config file (included) formatted like below.
 ```
 module.exports = {
-	email: "email@exmple.com",
+	email: "email@example.com",
 	password: "password"
 };
 ```
