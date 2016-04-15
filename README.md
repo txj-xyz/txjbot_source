@@ -1,9 +1,10 @@
 # TXJ Bot Source Code
 
 ##Installation
-`npm install JayEffTree/txjbot_source`
-`nodejs` 5.9+ is required.
-`ffmpeg` is required.
+```npm install JayEffTree/txjbot_source
+nodejs 5.9+ is required.
+ffmpeg is required.
+dca is required```
 
 
 ##Configuration:
