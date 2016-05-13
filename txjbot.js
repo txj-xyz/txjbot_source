@@ -720,42 +720,6 @@ var commands = {
 		"description": "List all Radio stations! - Usage: /radio <station_name>",
 		"authLevel": 0
 	},
-	"r34": {
-		"command": function(data,e) {
-			var request = require('request');
-			var parser = require('xml2json');
-			var tagsAr = [];
-			var i = 1;
-			for(i=1; i<data.args.length; i++)
-			{
-			  var t = data.args[i];
-			  tagsAr.push(encodeURIComponent(t));
-			}
-			var tags = tagsAr.join("+");
-			var uri = "http://rule34.xxx/index.php?page=dapi&s=post&limit=31&q=index&tags=" + tags;
-			var res = uri;
-			//console.log(res)
-			request(res, function (error, response, body) {
-				if(error){
-					e.message.channel.sendMessage("Sorry about that, there was an error with your request. Please try again.")
-					return
-				}
-				if (!error && response.statusCode == 200) {
-					var options = {object: true};
-					var json = parser.toJson(body, options);
-					if (!json || !json.posts || !json.posts.count|| !json.posts.post) return e.message.channel.sendMessage("Sorry, I couldn't find any results for that search term. Please try again")
-
-					//if(json.posts.count == "0") return e.message.channel.sendMessage("Sorry, I couldn't find any results for that search term. Please try again")
-					var count = json.posts.post.length;
-					var random = Math.floor(Math.random() * (count - 1));
-					if (!json.posts.post[random]) return e.message.channel.sendMessage("Sorry, I couldn't find any results for that search term. Please try again");
-					e.message.channel.sendMessage("http:" + json.posts.post[random].file_url);
-				}
-			})
-		},
-		"description": "Gets random Rule34 images. THIS IS NSFW - Usage: /r34 <search_term>",
-		"authLevel": 0
-	},
 	"slap": {
 		"command": function(data,e) {
 			var mentionedUser = e.message.mentions[0]
