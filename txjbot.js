@@ -421,42 +421,6 @@ var commands = {
   		},
   		"description": "Random memes! Usage - /meme"
   	},
-	"osu": {
-		"command": function(data, e) {
-			var InputTag = [];
-			var i = 1;
-			for(i=1; i<data.args.length; i++)
-			{
-			  var t = data.args[i];
-			  InputTag.push(t);
-			}
-			var osuInput = InputTag.join("+");
-			if(!osuInput){
-				e.message.channel.sendMessage("Sorry about that, I need an OSU player to lookup! - Usage: /osu <player>")
-				return
-			}
-			var request = require('request')
-			request('https://osu.ppy.sh/api/get_user?k=1a5e7c36c7fa6fe21946f4f0cec6eaf8e0fe182c&u='+osuInput, function (error, response, body) {
-				if (!error && response.statusCode == 200) {
-				var osu = JSON.parse(body);
-				  if (!osu || !osu[0]) return e.message.reply("Sorry about that, there was an error with request to the API, try again.");
-				var osuData = osu[0];
-				e.message.channel.sendMessage(
-					"__**Found player:**__ "+osuData.username+" If the results print `null` It means the user does not have stats\n"+
-					"```fix\nPlayer User ID: "+osuData.user_id+"\n"+
-					"	 300 Count: "+osuData.count300+"\n"+
-					"	 100 Count: "+osuData.count100+"\n"+
-					"	  50 count: "+osuData.count50+"\n"+
-					"	Play Count: "+osuData.playcount+"\n"+
-					"	User Level: "+osuData.level+"\n"+
-					"		  Rank: "+osuData.pp_rank+"\n"+
-					"   Total Score: "+osuData.total_score+"```"
-				);
-				}
-			})
-		},
-		"description": "OSU Player searching. - Usage: /osu <player>"
-	},
 	"lv": {
 		"command": function(data,e) {
 			var connection = voiceconnectionhashmap[e.message.channel.guild.id];
